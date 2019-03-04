@@ -6,10 +6,10 @@ import store from './store'
 import axios from 'axios'
 
 window.axios =  axios.create({
-  baseURL: 'https://domain.com/foo/bar',
+  baseURL: 'http://panel.buhojmedved.ru/api/v1',
   /* other custom settings */
 });
-
+axios.defaults.headers.common["token"] = localStorage.getItem('token')
 Vue.config.productionTip = false
 
 new Vue({

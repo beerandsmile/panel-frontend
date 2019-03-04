@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import router from '../router.js'
+import router from "../router.js";
 export default {
   data: () => ({
-    login: "l",
-    password: "p",
+    login: "Admin",
+    password: "Q7gH9E1ljKGf/",
     rules: {
       required: value => !!value || "Required.",
       min3: v => v.length >= 3 || "Min 3 characters",
@@ -55,11 +55,17 @@ export default {
   methods: {
     logining: function() {
       if (this.$refs.form.validate()) {
-        // axios.post('/login', {
-        // 	username: this.login,
-        // 	password: this.password
-				// }).then().catch()
-				router.push('main')
+        axios
+          .post("/login", {
+            username: this.login,
+            password: this.password
+          })
+          .then(res => {
+            axios.defaults.headers.common["token"] = res.data.token;
+            localStorage.setItem('token', res.data.token)
+            router.push("main");
+          })
+          .catch();
       }
     }
   }

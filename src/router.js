@@ -11,6 +11,13 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home,
+      beforeEnter: function (from, to, next) {
+        if (!window.axios.defaults.headers.common["token"]) {
+          next('login');
+        } else {
+          next();
+        }
+      },
       children: [
         {
           path: 'main',
@@ -26,7 +33,11 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: () => import('./views/Login.vue')
+      component: () => import('./views/Login.vue'),
+      beforeEnter: function (from, to, next) {
+        localStorage.removeItem('token')
+        next();
+      },
     }
   ]
 })
