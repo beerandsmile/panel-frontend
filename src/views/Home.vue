@@ -3,8 +3,8 @@
      <v-toolbar color="#e6e6fa">
       <v-toolbar-title>Title</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-sm-and-down">
-        <v-btn color="error" small outline to="login">Log Out</v-btn>
+      <v-toolbar-items>
+        <v-btn icon to="login"><v-icon>exit_to_app</v-icon></v-btn>
       </v-toolbar-items>
     </v-toolbar>
     <v-content>
