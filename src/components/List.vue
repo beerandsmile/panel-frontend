@@ -1,4 +1,5 @@
 <template>
+<div>
   <v-container>
     <v-layout text-center
               wrap>
@@ -39,6 +40,17 @@
       </v-expansion-panel>
     </v-layout>
   </v-container>
+  <v-fab-transition>
+      <v-btn
+        color="#e6e6fa"
+        fab
+        fixed
+        bottom
+        right>
+        <v-icon>add</v-icon>
+      </v-btn>
+    </v-fab-transition>
+  </div>
 </template>
 
 <script>
